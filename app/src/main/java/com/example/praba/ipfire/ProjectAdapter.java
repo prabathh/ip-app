@@ -11,15 +11,15 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class UserAdapter extends RecyclerView.Adapter<UserAdapter.userViewHolder> {
+public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.userViewHolder> {
 
     private Context mCtx;
     private String id;
-    private ArrayList<UserDetails> userdata;
+    private ArrayList<ProjectDetails> userdata;
 
 
 
-    public UserAdapter(Context mCtx, ArrayList<com.example.praba.ipfire.UserDetails> userdata) {
+    public ProjectAdapter(Context mCtx, ArrayList<com.example.praba.ipfire.ProjectDetails> userdata) {
         this.mCtx = mCtx;
         this.userdata = userdata;
 
@@ -28,7 +28,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.userViewHolder
 
 
     @Override
-    public UserAdapter.userViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ProjectAdapter.userViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater=LayoutInflater.from(mCtx);
         View view=inflater.inflate(R.layout.blog_row,parent,false);
         userViewHolder holder=new userViewHolder(view);
@@ -37,12 +37,13 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.userViewHolder
     }
 
     @Override
-    public void onBindViewHolder(userViewHolder holder, int position) {
+    public void onBindViewHolder(ProjectAdapter.userViewHolder holder, int position) {
 
-        UserDetails users=userdata.get(position);
+        ProjectDetails users=userdata.get(position);
 
-        holder.usersname.setText(users.getUsername());
-        holder.status.setText(users.getStatus());
+        holder.usersname.setText(users.getName());
+        holder.usersname.setText(users.getDesc());
+
 
     }
 
@@ -52,7 +53,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.userViewHolder
         return userdata.size();
     }
 
-    public void filteruserlist(ArrayList<UserDetails> filterduser) {
+    public void filteruserlist(ArrayList<ProjectDetails> filterduser) {
 
         userdata=filterduser;
         notifyDataSetChanged();
@@ -79,15 +80,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.userViewHolder
         @Override
         public void onClick(View v) {
 
-            int position=getAdapterPosition();
-            com.example.praba.ipfire.UserDetails id = userdata.get(position);
-
-            String workerName = id.getUsername();
-            NewProject newProject = new NewProject();
-
-            Intent selectUsers = new Intent(mCtx,NewProject.class);
-            selectUsers.putExtra("name",workerName);
-            mCtx.startActivity(selectUsers);
 
 
            /* int position=getAdapterPosition();

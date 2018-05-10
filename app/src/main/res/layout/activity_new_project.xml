@@ -43,6 +43,14 @@
                 android:hint="Project Description"
                 android:inputType="textEmailAddress" />
 
+            <EditText
+                android:id="@+id/textSelectedUsers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="Selected Users"
+                android:inputType="textEmailAddress" />
+
 
             <TextView
 

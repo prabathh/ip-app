@@ -50,9 +50,11 @@ public class NewProject extends AppCompatActivity {
     private String date;
     private DatabaseReference mRef;
 
+    private String selectWorker;
 
 
-    private TextView textProName , textProDes;
+
+    private TextView textProName , textProDes , selectedUsers;
 
     private Button buttonCreate;
     private CalendarView calendarView;
@@ -84,13 +86,18 @@ public class NewProject extends AppCompatActivity {
         mRef= FDB.getReference("Users");
 
 
+        selectWorker = getIntent().getStringExtra("name");
+
 
         //UserDetails=new ArrayList<com.example.praba.ipfire.UserDetails>();
 
         textProName = (EditText)findViewById(R.id.textProName);
         textProDes = (EditText)findViewById(R.id.textProDes);
+        selectedUsers = (EditText)findViewById(R.id.textSelectedUsers);
         calendarView = (CalendarView)findViewById(R.id.calendarView);
         buttonCreate = (Button)findViewById(R.id.buttonCreate);
+
+
 
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
@@ -121,7 +128,7 @@ public class NewProject extends AppCompatActivity {
                     mRegProg.setMessage("Please wait while add project details");
                     mRegProg.setCanceledOnTouchOutside(false);
                     mRegProg.show();
-                    ToDatabase(pname,des,selectedDate);
+                    ToDatabase(pname,des,selectedDate,selectWorker);
 
 
                 }else{
@@ -240,7 +247,7 @@ public class NewProject extends AppCompatActivity {
         }
     } */
 
-    private void ToDatabase(String pname ,String des ,String date) {
+    private void ToDatabase(String pname ,String des ,String date, String selectUserName) {
 
         final DatabaseReference newRef = mDatabase.push();
 
@@ -248,6 +255,7 @@ public class NewProject extends AppCompatActivity {
         project.put("Project_name", pname);
         project.put("description", des);
         project.put("due_date", date );
+        project.put("Workers",selectUserName);
 
         Thread mainThread = new Thread(new Runnable() {
             @Override
