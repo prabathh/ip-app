@@ -81,6 +81,8 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.userView
         public void onClick(View v) {
 
 
+            int position = getAdapterPosition();
+          //  Intent newIntent = new Intent(mCtx,)
 
            /* int position=getAdapterPosition();
             ithub.mobileposadmin.userdata id=userdata.get(position);
