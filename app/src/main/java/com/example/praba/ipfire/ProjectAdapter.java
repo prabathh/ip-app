@@ -84,7 +84,9 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.userView
 
             int position = getAdapterPosition();
             ProjectDetails id=userdata.get(position);
-            Intent newIntent = new Intent(mCtx,ChatActivity.class);
+            Intent newIntent = new Intent(mCtx,ProjectDetailsActivity.class);
+            String projname=id.getName();
+            newIntent.putExtra("projName",projname);
             mCtx.startActivity(newIntent);
 
            /* int position=getAdapterPosition();
