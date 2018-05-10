@@ -121,14 +121,14 @@ public class NewProject extends AppCompatActivity {
                 FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
                 String uID = currentUser.getUid();
 
-                    mDatabase = FirebaseDatabase.getInstance().getReference().child("Project").child(uID);
+                    mDatabase = FirebaseDatabase.getInstance().getReference().child("Project").child(pname);
 
                 if(!TextUtils.isEmpty(pname)||!TextUtils.isEmpty(des)||!TextUtils.isEmpty(date)){
                     mRegProg.setTitle("Adding Project");
                     mRegProg.setMessage("Please wait while add project details");
                     mRegProg.setCanceledOnTouchOutside(false);
                     mRegProg.show();
-                    ToDatabase(pname,des,selectedDate,selectWorker);
+                    ToDatabase(pname,des,selectedDate);
 
 
                 }else{
@@ -247,7 +247,7 @@ public class NewProject extends AppCompatActivity {
         }
     } */
 
-    private void ToDatabase(String pname ,String des ,String date, String selectUserName) {
+    private void ToDatabase(String pname ,String des ,String date) {
 
         final DatabaseReference newRef = mDatabase.push();
 
@@ -255,7 +255,7 @@ public class NewProject extends AppCompatActivity {
         project.put("Project_name", pname);
         project.put("description", des);
         project.put("due_date", date );
-        project.put("Workers",selectUserName);
+
 
         Thread mainThread = new Thread(new Runnable() {
             @Override
