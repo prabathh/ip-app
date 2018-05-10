@@ -76,6 +76,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
         firebaseAuth = FirebaseAuth.getInstance();
 
+        mCurrentUser = firebaseAuth.getCurrentUser();
 
 
 
@@ -155,7 +156,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
 
         }else if(item.getItemId() == R.id.myAccount){
-                Intent profile = new Intent(HomeActivity.this,MyProfile.class);
+
+                final String loggedUserID = mCurrentUser.getUid();
+                Intent profile = new Intent(HomeActivity.this,MyAccountActivity.class);
+                profile.putExtra("username",loggedUserID);
                 startActivity(profile);
         }
 

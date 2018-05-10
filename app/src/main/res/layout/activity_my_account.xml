@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MyAccountActivity"
+    android:background="@drawable/bg">
+
+    <LinearLayout
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <TextView
+
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="100dp"
+            android:drawableLeft="@drawable/myaccount"
+
+            android:text="My Account"
+            android:textAlignment="center"
+            android:textColor="#fff"
+            android:textSize="25dp" />
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:backgroundTint="#fff"
+            android:drawableLeft="@drawable/email"
+            android:drawablePadding="5dp"/>
+
+        <EditText
+            android:id="@+id/firstName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="First Name"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:backgroundTint="#fff"
+            android:drawableLeft="@drawable/name"
+            android:drawablePadding="5dp"/>
+
+        <EditText
+            android:layout_margin="10dp"
+            android:hint="Second Name"
+            android:id="@+id/secName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:backgroundTint="#fff"
+            android:drawableLeft="@drawable/name"
+            android:drawablePadding="5dp"/>
+
+        <EditText
+            android:layout_margin="10dp"
+            android:hint="Address"
+            android:id="@+id/address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:backgroundTint="#fff"
+            android:drawableLeft="@drawable/address"
+            android:drawablePadding="5dp"/>
+
+        <EditText
+            android:layout_margin="10dp"
+            android:hint="Status"
+            android:id="@+id/status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:backgroundTint="#fff"
+            android:drawableLeft="@drawable/status"
+            android:drawablePadding="5dp"
+            />
+
+        <EditText
+            android:layout_margin="10dp"
+            android:hint="Contact number"
+            android:id="@+id/contNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:backgroundTint="#fff"
+            android:drawableLeft="@drawable/mobno"
+            android:drawablePadding="5dp"/>
+
+        <EditText
+            android:id="@+id/pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:backgroundTint="#fff"
+            android:drawableLeft="@drawable/password"
+            android:drawablePadding="5dp"/>
+
+
+        <Button
+
+            android:id="@+id/updateBtn"
+            android:text="Update Details"
+            android:layout_width="250dp"
+            android:layout_marginLeft="80dp"
+            android:layout_height="wrap_content"
+            android:background="#bf4545"
+            android:textColor="#fff"/>
+
+
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

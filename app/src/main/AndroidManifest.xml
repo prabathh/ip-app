@@ -20,14 +20,18 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".HomeActivity" />
-        <activity android:name=".MyProject" />
-        <activity android:name=".NewProject" />
+        <activity android:name=".MyProject"
+            android:parentActivityName=".HomeActivity"/>
+        <activity android:name=".NewProject"
+            android:parentActivityName=".HomeActivity"/>
         <activity android:name=".SettingsActivity" />
         <activity android:name=".MyProfile" />
         <activity
             android:name=".ChatActivity"
             android:parentActivityName=".HomeActivity" />
-        <activity android:name=".ProjectDetailsActivity"></activity>
+        <activity android:name=".ProjectDetailsActivity" />
+        <activity android:name=".MyAccountActivity"
+            android:parentActivityName=".HomeActivity"></activity>
     </application>
 
 </manifest>

@@ -11,43 +11,46 @@
     <Button
         android:id="@+id/buttonMyProject"
         android:layout_width="150dp"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:layout_alignBottom="@+id/buttonChat"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="380dp"
+        android:layout_marginTop="384dp"
+        android:background="#414497"
         android:drawableLeft="@drawable/myproject"
         android:text="My Project"
+        android:textColor="#fff"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.718"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toEndOf="@+id/buttonNewProject"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="#414497"
-        android:textColor="#fff"
-        />
+        android:paddingLeft="10dp"/>
 
     <Button
         android:id="@+id/buttonNewProject"
         android:layout_width="150dp"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:layout_alignBaseline="@+id/buttonMyProject"
         android:layout_alignBottom="@+id/buttonMyProject"
+        android:layout_marginBottom="8dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="380dp"
         android:layout_toStartOf="@+id/buttonMyProject"
+        android:background="#414497"
         android:drawableLeft="@drawable/newproj"
         android:text="New Project"
+        android:textColor="#fff"
+        app:layout_constraintBottom_toTopOf="@+id/buttonChat"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="#414497"
-        android:textColor="#fff"
-        />
+        app:layout_constraintVertical_bias="0.266"
+        android:paddingLeft="10dp"/>
 
     <Button
         android:id="@+id/buttonChat"
         android:layout_width="150dp"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="8dp"
@@ -63,7 +66,8 @@
         app:layout_constraintTop_toBottomOf="@+id/buttonMyProject"
         app:layout_constraintVertical_bias="0.225"
         android:background="#414497"
-        android:textColor="#fff"/>
+        android:textColor="#fff"
+        android:paddingLeft="10dp"/>
 
     <TextView
         android:id="@+id/loggedUserName"
@@ -81,6 +85,8 @@
         app:layout_constraintHorizontal_bias="0.088"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:drawableLeft="@drawable/myaccount"
+        android:drawablePadding="5dp"
         />
 
 
