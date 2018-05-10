@@ -88,6 +88,8 @@ public class NewProject extends AppCompatActivity {
 
         selectWorker = getIntent().getStringExtra("name");
 
+//        selectedUsers.setText(selectWorker);
+
 
         //UserDetails=new ArrayList<com.example.praba.ipfire.UserDetails>();
 
