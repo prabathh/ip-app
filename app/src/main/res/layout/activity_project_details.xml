@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProjectDetailsActivity">
+    tools:context=".ProjectDetailsActivity"
+    android:background="@drawable/bg">
 
     <Button
         android:id="@+id/chatWithUsers"
@@ -55,7 +56,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="#fff"
+        android:textColorHint="#fff"
+        android:backgroundTint="#fff"/>
 
     <EditText
         android:id="@+id/supEmail"
@@ -72,7 +76,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/supName" />
+        app:layout_constraintTop_toBottomOf="@+id/supName"
+        android:textColor="#fff"
+        android:textColorHint="#fff"
+        android:backgroundTint="#fff"/>
 
     <EditText
         android:id="@+id/supAddress"
@@ -89,7 +96,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/supEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/supEmail"
+        android:textColor="#fff"
+        android:textColorHint="#fff"
+        android:backgroundTint="#fff"/>
 
 
 

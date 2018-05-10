@@ -8,4 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Widget.CalendarView.Custom" parent="android:Widget.CalendarView">
+        <item name="android:focusedMonthDateColor">@color/colorWhite</item>
+        <item name="android:weekNumberColor">@color/colorWhite</item>
+        <item name="android:weekDayTextAppearance">@color/colorWhite</item>
+        <item name="android:dateTextAppearance">@color/colorWhite</item>
+    </style>
+
 </resources>

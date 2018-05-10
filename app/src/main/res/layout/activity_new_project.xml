@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewProject">
+    tools:context=".NewProject"
+    android:background="@drawable/bg">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -25,7 +26,8 @@
                 android:layout_height="wrap_content"
                 android:text="Create New Project"
                 android:textAlignment="center"
-                android:textSize="25dp" />
+                android:textSize="25dp"
+                android:textColor="#fff"/>
 
             <EditText
                 android:id="@+id/textProName"
@@ -33,7 +35,10 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:hint="Project Name"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:textColor="#fff"
+                android:textColorHint="#fff"
+                android:backgroundTint="#fff"/>
 
             <EditText
                 android:id="@+id/textProDes"
@@ -41,7 +46,10 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:hint="Project Description"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:textColor="#fff"
+                android:textColorHint="#fff"
+                android:backgroundTint="#fff"/>
 
             <EditText
                 android:id="@+id/textSelectedUsers"
@@ -49,7 +57,10 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:hint="Selected Users"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:textColor="#fff"
+                android:textColorHint="#fff"
+                android:backgroundTint="#fff"/>
 
 
             <TextView
@@ -57,7 +68,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="   Select Employes"
-                android:textSize="15dp" />
+                android:textSize="15dp"   android:textColor="#fff"
+                android:textColorHint="#fff"
+                android:backgroundTint="#fff"/>
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/myRecycler"
@@ -73,13 +86,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="   Select End Date"
-                android:textSize="15dp" />
+                android:textSize="15dp"   android:textColor="#fff"
+                android:textColorHint="#fff"
+                android:backgroundTint="#fff"/>
 
             <CalendarView
                 android:id="@+id/calendarView"
                 android:layout_width="match_parent"
                 android:layout_height="264dp"
-                android:layout_margin="10dp"/>
+                android:layout_margin="10dp"
+                android:theme="@style/Widget.CalendarView.Custom"/>
 
 
             <Button

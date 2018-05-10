@@ -89,10 +89,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
-        buttonLogout = (Button)findViewById(R.id.buttonLogout);
+
         buttonMyProject = (Button)findViewById(R.id.buttonMyProject);
         buttonNewProject = (Button)findViewById(R.id.buttonNewProject);
-        buttonMyProfile = (Button)findViewById(R.id.buttonMyProfile);
         chat = (Button)findViewById(R.id.buttonChat);
 
 
@@ -105,10 +104,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        buttonLogout.setOnClickListener(this);
+
         buttonMyProject.setOnClickListener(this);
         buttonNewProject.setOnClickListener(this);
-        buttonMyProfile.setOnClickListener(this);
+
 
 
 
