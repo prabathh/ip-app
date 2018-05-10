@@ -33,7 +33,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="226dp"
-        android:text="New Project" />
+        android:text="New Project"
+        android:drawableLeft="@drawable/newproj"/>
 
     <Button
         android:id="@+id/buttonChat"
@@ -42,7 +43,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="346dp"
-        android:text="Chat" />
+        android:text="Chat"
+        android:drawableLeft="@drawable/chat"/>
 
     <Button
         android:id="@+id/buttonMyProfile"
