@@ -24,7 +24,8 @@
         <activity android:name=".NewProject" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".MyProfile" />
-        <activity android:name=".ChatActivity"></activity>
+        <activity android:name=".ChatActivity"
+            android:parentActivityName=".HomeActivity"></activity>
     </application>
 
 </manifest>

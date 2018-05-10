@@ -70,11 +70,12 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.userView
             super(itemView);
             usersname=itemView.findViewById(R.id.textname);
             status=itemView.findViewById(R.id.textstatus);
-            //itemView.setOnClickListener(userViewHolder.this);
+            itemView.setOnClickListener(userViewHolder.this);
 
 
 
         }
+
 
 
         @Override
@@ -82,7 +83,9 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.userView
 
 
             int position = getAdapterPosition();
-          //  Intent newIntent = new Intent(mCtx,)
+            ProjectDetails id=userdata.get(position);
+            Intent newIntent = new Intent(mCtx,ChatActivity.class);
+            mCtx.startActivity(newIntent);
 
            /* int position=getAdapterPosition();
             ithub.mobileposadmin.userdata id=userdata.get(position);
