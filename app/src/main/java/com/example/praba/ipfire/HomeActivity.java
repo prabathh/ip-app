@@ -3,6 +3,8 @@ package com.example.praba.ipfire;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -24,6 +26,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private Button buttonNewProject;
     private Button buttonMyProfile;
     private Button chat;
+    private TextView userName;
 
 
     String loggedUserName;
@@ -45,11 +48,14 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         usersReference = FirebaseDatabase.getInstance().getReference().child("Users").child(userID);
         usersReference.keepSynced(true);
 
+        userName  = (TextView)findViewById(R.id.loggedUserName);
+
         usersReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 loggedUserName = dataSnapshot.child("name").getValue().toString();
                 // mUserName.setText(loggedUserName);
+                userName.setText(loggedUserName);
             }
 
             @Override
@@ -128,6 +134,34 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         if (v == buttonMyProfile){
             startActivity(new Intent(HomeActivity.this, MyProfile.class));
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+
+
+        getMenuInflater().inflate(R.menu.main_menu,menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        super.onOptionsItemSelected(item);
+        if(item.getItemId() == R.id.logOut){
+            firebaseAuth.signOut();
+            finish();
+            startActivity(new Intent(this, LoginActivity.class ));
+
+
+        }else if(item.getItemId() == R.id.myAccount){
+                Intent profile = new Intent(HomeActivity.this,MyProfile.class);
+                startActivity(profile);
+        }
+
+
+        return true;
     }
 
 
