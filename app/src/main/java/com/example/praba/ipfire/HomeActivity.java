@@ -1,6 +1,12 @@
 package com.example.praba.ipfire;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -40,30 +46,32 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     public void onStart() {
         super.onStart();
 
+        if(!isConnected(HomeActivity.this)) buildDialog(HomeActivity.this).show();
+        else {
 
-        FirebaseUser user = firebaseAuth.getCurrentUser();
+            FirebaseUser user = firebaseAuth.getCurrentUser();
 
-        final String userID = user.getUid();
+            final String userID = user.getUid();
 
-        usersReference = FirebaseDatabase.getInstance().getReference().child("Users").child(userID);
-        usersReference.keepSynced(true);
+            usersReference = FirebaseDatabase.getInstance().getReference().child("Users").child(userID);
+            usersReference.keepSynced(true);
 
-        userName  = (TextView)findViewById(R.id.loggedUserName);
+            userName = (TextView) findViewById(R.id.loggedUserName);
 
-        usersReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                loggedUserName = dataSnapshot.child("name").getValue().toString();
-                // mUserName.setText(loggedUserName);
-                userName.setText(loggedUserName);
-            }
+            usersReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    loggedUserName = dataSnapshot.child("name").getValue().toString();
+                    // mUserName.setText(loggedUserName);
+                    userName.setText(loggedUserName);
+                }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });
-
+                }
+            });
+        }
 
     }
 
@@ -165,6 +173,57 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
 
         return true;
+    }
+
+
+    // Check connection status
+
+
+    public boolean isConnected(Context context){
+
+        ConnectivityManager cn = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netinfo = cn.getActiveNetworkInfo();
+
+        if(netinfo != null && netinfo.isConnectedOrConnecting()){
+
+            android.net.NetworkInfo wifi = cn.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+            android.net.NetworkInfo mobile = cn.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+
+            if(mobile != null && mobile.isConnectedOrConnecting() || (wifi != null && wifi.isConnectedOrConnecting())){
+                return true;
+            }else{
+                return false;
+
+            }
+
+        }else{
+            return false;
+        }
+
+    }
+
+    public AlertDialog.Builder buildDialog(Context c) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(c);
+        builder.setTitle("No Internet Connection");
+        builder.setMessage("Press Close to Exit");
+        builder.setCancelable(false);
+
+
+        builder.setPositiveButton("Close", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                Intent dialogIntent = new Intent(Settings.ACTION_DATA_ROAMING_SETTINGS);
+                dialogIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(dialogIntent);
+
+                finish();
+            }
+        });
+
+        return builder;
     }
 
 

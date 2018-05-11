@@ -1,7 +1,13 @@
 package com.example.praba.ipfire;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -40,6 +46,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ProgressDialog mRegProg;
     private FirebaseAuth mAuth;
 
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(!isConnected(MainActivity.this)) buildDialog(MainActivity.this).show();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -141,7 +153,59 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    
+
+    // Check connection status
+
+
+    public boolean isConnected(Context context){
+
+        ConnectivityManager cn = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netinfo = cn.getActiveNetworkInfo();
+
+        if(netinfo != null && netinfo.isConnectedOrConnecting()){
+
+            android.net.NetworkInfo wifi = cn.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+            android.net.NetworkInfo mobile = cn.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+
+            if(mobile != null && mobile.isConnectedOrConnecting() || (wifi != null && wifi.isConnectedOrConnecting())){
+                return true;
+            }else{
+                return false;
+
+            }
+
+        }else{
+            return false;
+        }
+
+    }
+
+    public AlertDialog.Builder buildDialog(Context c) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(c);
+        builder.setTitle("No Internet Connection");
+        builder.setMessage("Press Close to Exit");
+        builder.setCancelable(false);
+
+
+        builder.setPositiveButton("Close", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                Intent dialogIntent = new Intent(Settings.ACTION_DATA_ROAMING_SETTINGS);
+                dialogIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(dialogIntent);
+
+                finish();
+            }
+        });
+
+        return builder;
+    }
+
+
+
 }
 
 
